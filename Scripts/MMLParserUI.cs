@@ -8,9 +8,12 @@ using UnityEngine.UI;
 public class MMLParserUI : UdonSharpBehaviour
 {
     [UdonSynced]
-    bool loading = false;
-    [UdonSynced]
-    bool playing = false;
+    int state = 0; 
+    //0=ready
+    //1=loading
+    //2=playing
+    //3=stop
+
     //synced play system.
     [UdonSynced]
     string track1mml;
@@ -22,12 +25,13 @@ public class MMLParserUI : UdonSharpBehaviour
     string track4mml;
     [UdonSynced]
     string track5mml;
-    [UdonSynced]
-    int seq = 0;//if it is > pseq, we need to do stuff
-    int pseq = 0;
+
+    int pState = 0;
     int uI = 0;
+    int octaveShift = 0;
 
     public Text status;
+    public Text octave;
 
     public MMLParser track1;
     public InputField track1Text;
@@ -40,43 +44,32 @@ public class MMLParserUI : UdonSharpBehaviour
     public MMLParser track5;
     public InputField track5Text;
 
-
-    public void OnLoadPressed()
+    public void Start()
     {
-        track1mml = track1Text.text;
-        track2mml = track2Text.text;
-        track3mml = track3Text.text;
-        track4mml = track4Text.text;
-        track5mml = track5Text.text;
-        loading = true;
-        playing = false;
-        seq++;
-    }
-
-    public void OnPlayPressed()
-    {
-        loading = false;
-        playing = true;
-        seq++;
+        octave.text = octaveShift.ToString();
     }
 
     public void Update()
     {
-        if (seq != pseq)
+        if (state != pState)
         {
-            if (loading)
-            {
-                Load();
+            switch (state) {
+                default://Nothing/Invalid
+                    break;
+                case 0://Idle
+                    break;
+                case 1:
+                    Load();
+                    break;
+                case 2:
+                    Play();
+                    break;
+                case 3:
+                    Stop();
+                    break;
+                    
             }
-            else if (playing)
-            {
-                Play();
-            }
-            else
-            {
-                Stop();
-            }
-            pseq = seq;
+            pState = state;
         }
 
         if (uI == 0)
@@ -118,10 +111,7 @@ public class MMLParserUI : UdonSharpBehaviour
         track5.PlaySync(sync);
     }
 
-    public void OnStopPressed()
-    {
-        Stop();
-    }
+    
 
     public void Stop()
     {
@@ -130,5 +120,59 @@ public class MMLParserUI : UdonSharpBehaviour
         track3.Stop();
         track4.Stop();
         track5.Stop();
+    }
+
+    public void OnRaiseShift()
+    {
+        octaveShift++;
+        SetOctaveShift();
+    }
+    public void OnLowerShift()
+    {
+        octaveShift--;
+        SetOctaveShift();
+    }
+
+    public void OnStopPressed()
+    {
+        state = 3;
+    }
+
+    public void OnLoadPressed()
+    {
+        track1mml = track1Text.text;
+        track2mml = track2Text.text;
+        track3mml = track3Text.text;
+        track4mml = track4Text.text;
+        track5mml = track5Text.text;
+        state = 1;
+    }
+
+    public void OnPlayPressed()
+    {
+        state = 2;
+    }
+
+    void SetOctaveShift()
+    {
+        track1.SetOctaveShift(octaveShift);
+        track2.SetOctaveShift(octaveShift);
+        track3.SetOctaveShift(octaveShift);
+        track4.SetOctaveShift(octaveShift);
+        track5.SetOctaveShift(octaveShift);
+        octave.text = octaveShift.ToString();
+    }
+
+    public void TakeOwnership()
+    {
+        if (!Networking.IsOwner(gameObject))
+        {
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            Networking.SetOwner(Networking.LocalPlayer, track1.gameObject);
+            Networking.SetOwner(Networking.LocalPlayer, track2.gameObject);
+            Networking.SetOwner(Networking.LocalPlayer, track3.gameObject);
+            Networking.SetOwner(Networking.LocalPlayer, track4.gameObject);
+            Networking.SetOwner(Networking.LocalPlayer, track5.gameObject);
+        }
     }
 }

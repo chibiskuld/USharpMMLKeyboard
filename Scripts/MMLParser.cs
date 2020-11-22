@@ -159,7 +159,8 @@ public class MMLParser : UdonSharpBehaviour
             //play note first, math later.
             if (!suppressNext)
             {
-                keyboard.PlayNoteVolume(notes[cursor], volume);
+                int note = notes[cursor] + (octaveShift * 12);
+                keyboard.PlayNoteVolume(note, volume);
                 keyboard.HighLightNote(notes[cursor]);
             }
 
@@ -311,7 +312,7 @@ public class MMLParser : UdonSharpBehaviour
     }
     void ParseNote()
     {
-        string note = mmlc[cursor] + ( octave + octaveShift).ToString();
+        string note = mmlc[cursor] + octave.ToString();
         if (cursor + 1 < mmlc.Length - 1)
         {
             if (mmlc[cursor + 1] == '#')
@@ -490,5 +491,10 @@ public class MMLParser : UdonSharpBehaviour
                 return "Ready (" + size + ")";
             }
         }
+    }
+
+    public void SetOctaveShift(int o)
+    {
+        octaveShift = o;
     }
 }
