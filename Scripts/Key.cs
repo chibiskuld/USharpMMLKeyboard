@@ -10,6 +10,7 @@ public class Key : UdonSharpBehaviour
     Animator animator;
     string note;
     bool initialized = false;
+    int noteIndex = -1;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class Key : UdonSharpBehaviour
         keyboard = GetComponentInParent<KeyBoard>();
         animator = GetComponent<Animator>();
         note = gameObject.name;
+        noteIndex = keyboard.GetNoteIndex(note);
         initialized = true;
     }
 
@@ -28,7 +30,7 @@ public class Key : UdonSharpBehaviour
     {
         if (!initialized) Initialize();
         animator.SetTrigger("light");
-        keyboard.PlayNote(note);        
+        keyboard.PlayNote(noteIndex);        
     }
 
     public void Highlight()

@@ -17,7 +17,7 @@ public class AudioPlayTest : MonoBehaviour
         }
         if (keyboard != null)
         {
-            keyboard.PlayNote(note);
+            keyboard.PlayNoteByName(note);
         }
     }
 }
