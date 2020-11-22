@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: fa72c753bbd7815409ff53853d60f267
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: A4
+    100004: A4s
+    100006: A5
+    100008: A5s
+    100010: B4
+    100012: B5
+    100014: Base
+    100016: C4
+    100018: C4s
+    100020: C5
+    100022: C5s
+    100024: D4
+    100026: D4s
+    100028: D5
+    100030: D5s
+    100032: E4
+    100034: E5
+    100036: F4
+    100038: F4s
+    100040: F5
+    100042: F5s
+    100044: G4
+    100046: G4s
+    100048: G5
+    100050: G5s
+    400000: //RootNode
+    400002: A4
+    400004: A4s
+    400006: A5
+    400008: A5s
+    400010: B4
+    400012: B5
+    400014: Base
+    400016: C4
+    400018: C4s
+    400020: C5
+    400022: C5s
+    400024: D4
+    400026: D4s
+    400028: D5
+    400030: D5s
+    400032: E4
+    400034: E5
+    400036: F4
+    400038: F4s
+    400040: F5
+    400042: F5s
+    400044: G4
+    400046: G4s
+    400048: G5
+    400050: G5s
+    2100000: musicboard
+    2300000: //RootNode
+    2300002: A4
+    2300004: A4s
+    2300006: A5
+    2300008: A5s
+    2300010: B4
+    2300012: B5
+    2300014: Base
+    2300016: C4
+    2300018: C4s
+    2300020: C5
+    2300022: C5s
+    2300024: D4
+    2300026: D4s
+    2300028: D5
+    2300030: D5s
+    2300032: E4
+    2300034: E5
+    2300036: F4
+    2300038: F4s
+    2300040: F5
+    2300042: F5s
+    2300044: G4
+    2300046: G4s
+    2300048: G5
+    2300050: G5s
+    3300000: //RootNode
+    3300002: A4
+    3300004: A4s
+    3300006: A5
+    3300008: A5s
+    3300010: B4
+    3300012: B5
+    3300014: Base
+    3300016: C4
+    3300018: C4s
+    3300020: C5
+    3300022: C5s
+    3300024: D4
+    3300026: D4s
+    3300028: D5
+    3300030: D5s
+    3300032: E4
+    3300034: E5
+    3300036: F4
+    3300038: F4s
+    3300040: F5
+    3300042: F5s
+    3300044: G4
+    3300046: G4s
+    3300048: G5
+    3300050: G5s
+    4300000: Plane
+    4300002: Base
+    4300004: C4
+    4300006: C4s
+    4300008: D4
+    4300010: D4s
+    4300012: E4
+    4300014: F4
+    4300016: F4s
+    4300018: G4
+    4300020: G4s
+    4300022: A4
+    4300024: A4s
+    4300026: B4
+    4300028: C5
+    4300030: C5s
+    4300032: D5
+    4300034: D5s
+    4300036: E5
+    4300038: F5
+    4300040: F5s
+    4300042: G5
+    4300044: G5s
+    4300046: A5
+    4300048: A5s
+    4300050: B5
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: musicboard
+    second: {fileID: 2100000, guid: b0f5a80db16070a43ade0e9d93b9e919, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["Plane"],"padding":[1],"unwrapper":[0]}'
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
