@@ -154,29 +154,30 @@ public class MMLParser : UdonSharpBehaviour
 
     void PlayNote()
     {
-        if (values[cursor] > 0 && values[cursor] < 65)
+        if (notes[cursor] > -25 && notes[cursor] < 72)//todo: should be mabi note range
         {
-            //play note first, math later.
-            if (!suppressNext)
+            if (values[cursor] > 0 && values[cursor] < 65)//check valid length
             {
-                int note = notes[cursor] + (octaveShift * 12);
-                keyboard.PlayNoteVolume(note, volume);
-                keyboard.HighLightNote(notes[cursor]);
+                //play note first, math later.
+                if (!suppressNext)
+                {
+                    int note = notes[cursor] + (octaveShift * 12);
+                    keyboard.PlayNoteVolume(note, volume);
+                    keyboard.HighLightNote(notes[cursor]);
+                }
+                suppressNext = false;
+
+                float t = tempo;
+                float n = (60.0f / t);
+                n *= 4.0f;
+                n /= (float)values[cursor];
+
+                if (extended[cursor]) n *= 1.5f;
+
+                if (debug) Debug.Log(notes[cursor] + ":" + suppressNext + ":" + volume + ":" + n);
+
+                resumeTime = resumeTime.AddSeconds(n);
             }
-
-            float t = tempo;
-            float n = (60.0f / t);
-            n *= 4.0f;
-            n /= (float)values[cursor];
-
-            if (extended[cursor])
-            {
-                n *= 1.5f;
-            }
-
-            if (debug) Debug.Log(notes[cursor] + ":" + suppressNext+":" + volume + ":" + n);
-            suppressNext = false;
-            resumeTime = resumeTime.AddSeconds(n);
         }
     }
 
@@ -333,6 +334,7 @@ public class MMLParser : UdonSharpBehaviour
         }
 
         int value = GetNumber(defaultLength, extend);
+        if (value == 0) value = defaultLength;
         AddCommand('N', keyboard.GetNoteIndex(note), value, localExtend);
     }
 

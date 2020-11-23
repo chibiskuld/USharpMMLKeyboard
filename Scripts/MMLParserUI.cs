@@ -8,12 +8,13 @@ using UnityEngine.UI;
 public class MMLParserUI : UdonSharpBehaviour
 {
     [UdonSynced]
-    int state = 0; 
+    int state = 0;
     //0=ready
     //1=loading
     //2=playing
     //3=stop
 
+    //Merlin about UdonSync and Strings: nope it'll just work, it has an upper limit of around 70-80 characters before it explodes though
     //synced play system.
     [UdonSynced]
     string track1mml;
@@ -32,6 +33,7 @@ public class MMLParserUI : UdonSharpBehaviour
 
     public Text status;
     public Text octave;
+    public Text debug;
 
     public MMLParser track1;
     public InputField track1Text;
@@ -51,9 +53,16 @@ public class MMLParserUI : UdonSharpBehaviour
 
     public void Update()
     {
+        debug.text = state.ToString() + ":" + 
+                    track1mml.Length + ":" + 
+                    track2mml.Length + ":" + 
+                    track3mml.Length + ":" + 
+                    track4mml.Length + ":" + 
+                    track5mml.Length;
         if (state != pState)
         {
-            switch (state) {
+            switch (state)
+            {
                 default://Nothing/Invalid
                     break;
                 case 0://Idle
@@ -67,7 +76,7 @@ public class MMLParserUI : UdonSharpBehaviour
                 case 3:
                     Stop();
                     break;
-                    
+
             }
             pState = state;
         }
@@ -135,21 +144,25 @@ public class MMLParserUI : UdonSharpBehaviour
 
     public void OnStopPressed()
     {
+        Networking.SetOwner(Networking.LocalPlayer, gameObject);
         state = 3;
     }
 
     public void OnLoadPressed()
     {
-        track1mml = track1Text.text;
-        track2mml = track2Text.text;
-        track3mml = track3Text.text;
-        track4mml = track4Text.text;
-        track5mml = track5Text.text;
+        Networking.SetOwner(Networking.LocalPlayer, gameObject);
+        //todo: Split it into chunks of 64, enough to cover 512 characters.
+        track1mml = track1Text.text.Substring(0, 64);
+        track2mml = track2Text.text.Substring(0, 64);
+        track3mml = track3Text.text.Substring(0, 64);
+        track4mml = track4Text.text.Substring(0, 64);
+        track5mml = track5Text.text.Substring(0, 64);
         state = 1;
     }
 
     public void OnPlayPressed()
     {
+        Networking.SetOwner(Networking.LocalPlayer, gameObject);
         state = 2;
     }
 
@@ -161,18 +174,5 @@ public class MMLParserUI : UdonSharpBehaviour
         track4.SetOctaveShift(octaveShift);
         track5.SetOctaveShift(octaveShift);
         octave.text = octaveShift.ToString();
-    }
-
-    public void TakeOwnership()
-    {
-        if (!Networking.IsOwner(gameObject))
-        {
-            Networking.SetOwner(Networking.LocalPlayer, gameObject);
-            Networking.SetOwner(Networking.LocalPlayer, track1.gameObject);
-            Networking.SetOwner(Networking.LocalPlayer, track2.gameObject);
-            Networking.SetOwner(Networking.LocalPlayer, track3.gameObject);
-            Networking.SetOwner(Networking.LocalPlayer, track4.gameObject);
-            Networking.SetOwner(Networking.LocalPlayer, track5.gameObject);
-        }
     }
 }
