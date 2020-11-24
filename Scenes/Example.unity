@@ -151,7 +151,7 @@ MonoBehaviour:
   renderSettingsForceRebuildGeometry: 1
   renderSettingsPerformRendering: 1
   renderSettingsUserRenderMode: 0
-  renderSettingsDistanceShadowmask: 1
+  renderSettingsDistanceShadowmask: 0
   renderSettingsSettingsMode: 0
   renderSettingsFixSeams: 1
   renderSettingsDenoise: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
   renderSettingsHackEmissiveBoost: 1
   renderSettingsHackIndirectBoost: 1
   renderSettingsTempPath: 
-  renderSettingsOutPath: BakeryLightmaps
+  renderSettingsOutPath: 
   renderSettingsUseScenePath: 0
   renderSettingsHackAOIntensity: 0
   renderSettingsHackAOSamples: 16
@@ -208,7 +208,7 @@ MonoBehaviour:
   renderSettingsShowPerf: 1
   renderSettingsSampleDiv: 1
   renderSettingsLegacyDenoiser: 0
-  renderSettingsAtlasPacker: 0
+  renderSettingsAtlasPacker: 1
   renderSettingsBatchPoints: 1
   renderSettingsRTPVExport: 1
   renderSettingsRTPVSceneView: 0
@@ -565,9 +565,9 @@ MonoBehaviour:
   DynamicPrefabs: []
   DynamicMaterials:
   - {fileID: 2100000, guid: b0f5a80db16070a43ade0e9d93b9e919, type: 2}
-  - {fileID: 2100000, guid: c815f7613a04b724089c206857e57c6a, type: 2}
-  - {fileID: 2100000, guid: f9f0ca4e1c93d7c449df855cc90deab0, type: 2}
   - {fileID: 2100000, guid: dfa3df02074a4a244bdae8f939beccbe, type: 2}
+  - {fileID: 2100000, guid: f9f0ca4e1c93d7c449df855cc90deab0, type: 2}
+  - {fileID: 2100000, guid: c815f7613a04b724089c206857e57c6a, type: 2}
   - {fileID: 2100000, guid: 45f1ef75829e8ae4883bf3c04e27c626, type: 2}
   LightMapsNear: []
   LightMapsFar: []
@@ -917,10 +917,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875815055}
     m_Modifications:
+    - target: {fileID: 1979370263122450633, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
+      propertyPath: m_Name
+      value: Button-01
+      objectReference: {fileID: 0}
     - target: {fileID: 3171412928457441982, guid: 1697229a8e9d5534ba807beb8e514be1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 3260101386473233728, guid: 1697229a8e9d5534ba807beb8e514be1,
         type: 3}
@@ -928,6 +933,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 64cd47e8ba843244db0f25b644cf8214,
         type: 2}
+    - target: {fileID: 4999845338737193190, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendCustomEvent
+      objectReference: {fileID: 0}
     - target: {fileID: 5603029829592951584, guid: 1697229a8e9d5534ba807beb8e514be1,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -951,6 +961,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2088ce912fc00b749949f82a5b7493fe,
         type: 2}
+    - target: {fileID: 6022489194915761250, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 6022489194915761250, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
     - target: {fileID: 6047647586777796811, guid: 1697229a8e9d5534ba807beb8e514be1,
         type: 3}
       propertyPath: m_RootOrder
@@ -986,10 +1002,26 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.003
       objectReference: {fileID: 0}
+    - target: {fileID: 6134227476952218007, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendCustomEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177998620338110000, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
+      propertyPath: serializedProgramAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 29a317914402e764092135cd57119da0,
+        type: 2}
+    - target: {fileID: 6283302527677125302, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00008392334
+      objectReference: {fileID: 0}
     - target: {fileID: 6992226608936660943, guid: 1697229a8e9d5534ba807beb8e514be1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7574999315788135892, guid: 1697229a8e9d5534ba807beb8e514be1,
         type: 3}
@@ -1000,6 +1032,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073488110020021752, guid: 1697229a8e9d5534ba807beb8e514be1,
+        type: 3}
+      propertyPath: m_Name
+      value: Preset0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1697229a8e9d5534ba807beb8e514be1, type: 3}
