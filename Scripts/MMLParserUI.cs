@@ -61,7 +61,6 @@ public class MMLParserUI : UdonSharpBehaviour
                     track3mml.Length;
         if (state != pState)
         {
-            Debug.Log("owo3");
             switch (state)
             {
                 default://Nothing/Invalid
@@ -80,7 +79,6 @@ public class MMLParserUI : UdonSharpBehaviour
             }
             if ( state > 3)
             {
-                Debug.Log("owo4");
                 LoadPreset();
             }
             pState = state;
